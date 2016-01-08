@@ -14,7 +14,7 @@ create postgis pki enabled conf data container. This container contain postgis c
 * `#> cd Postgis-pki-datacontainers/conf`
 * build postgis-config-image:
 
-        * `#> docker build -t postgis-config-image .`
+        #> docker build -t postgis-config-image .
 
 create the data container postgis-config-container exposing /etc/postgresql/9.4/main/ volume that will be mounted as persistent data container in the kartoza/postgis
 
@@ -26,11 +26,11 @@ This container is the DB data repository. More than the standard "docker" role a
 * `#> cd Postgis-pki-datacontainers/pgdata`
 * build postgis-pgdata-image
 
-        * `#> docker build -t postgis-pgdata-image .`
+        #> docker build -t postgis-pgdata-image .
         
 * build the data container postgis-pgdata-container exposing /var/lib/postgresql/9.4/main volume that will be mounted as persistent data container in the kartoza/postgis
 
-        * `#> docker run -v /var/lib/postgresql/9.4/main --name postgis-pgdata-container postgis-pgdata-image`
+        #> docker run -v /var/lib/postgresql/9.4/main --name postgis-pgdata-container postgis-pgdata-image
 
 Run the pki enabled postgis container
 * `#> docker run --rm --volumes-from postgis-pgdata-container --volumes-from postgis-config-container --name "postgis" -t kartoza/postgis`
