@@ -19,9 +19,12 @@ Create the data container postgis-config-container exposing /etc/postgresql/9.4/
 
 * `#> docker run -v /etc/postgresql/9.4/main/ --name postgis-config-container postgis-config-image`
 
-Create postgis pki enabled pgdata data container.\
-This container is the DB data repository. More than the standard "docker" role added by kartoza/postgis has been added the following roles:\
+Create postgis pki enabled pgdata data container.
+
+This container is the DB data repository. More than the standard "docker" role added by kartoza/postgis has been added the following roles:
+
 "Fra", "Ptolemy", "Gerardus", "Nicholas" all belonging to the "docker" role. This users correspond to that having certificates in https://github.com/qgis/QGIS/tree/master/tests/testdata/auth_system/certs_keys.
+
 * `#> cd Postgis-pki-datacontainers/pgdata`
 * build postgis-pgdata-image
 
