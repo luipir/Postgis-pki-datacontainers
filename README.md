@@ -37,4 +37,4 @@ Run the pki enabled postgis container
 
 To connect to the server client have to set certificates.
 Configure client following this guide:
-* https://github.com/luipir/Postgis-pki-datacontainers/blob/conf/README_HowtoSetupClientCert.md
+* https://github.com/luipir/Postgis-pki-datacontainers/blob/master/conf/README_HowtoSetupClientCert.md
