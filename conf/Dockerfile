@@ -12,8 +12,11 @@ RUN mkdir -p /etc/postgresql/9.4/main
 # populate configuration
 ADD ./conf /etc/postgresql/9.4/main
 
-# change permission to all copied files
+# change owner to all copied files
 RUN chown -R postgres:postgres /etc/postgresql
+
+# check permission to the server key
+RUN chmod 0400 /etc/postgresql/9.4/main/ssl/private/localhost_ssl_key.pem
 
 # specify the volume to export 
 # I'm not sure it's necessary because I've always to set -v in the data-container
