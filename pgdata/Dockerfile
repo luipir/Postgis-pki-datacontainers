@@ -11,8 +11,6 @@ RUN mkdir -p /var/lib/postgresql/9.4/main
 
 # populate dbdata
 ADD ./pgdata.tar.gz /var/lib/postgresql/9.4/main/
-#RUN tar zxvf /var/lib/postgresql/9.4/main/pgdata.tar.gz /var/lib/postgresql/9.4/main/
-#RUN rm /var/lib/postgresql/9.4/main/pgdata.tar.gz
 
 # cheange permission to all copied files
 RUN chown -R postgres:postgres /var/lib/postgresql
