@@ -32,9 +32,21 @@ This container is the DB data repository. More than the standard "docker" role a
 
         #> docker run -v /var/lib/postgresql/9.4/main --name postgis-pgdata-container postgis-pgdata-image
 
-Run the pki enabled postgis container
+Run the pki enabled postgis container. OSX Users have follow this [1]:
 * `#> docker run --rm --volumes-from postgis-pgdata-container --volumes-from postgis-config-container --name "postgis" -t kartoza/postgis`
 
 To connect to the server client have to set certificates.
 Configure client following this guide:
 * https://github.com/luipir/Postgis-pki-datacontainers/blob/master/conf/README_HowtoSetupClientCert.md
+
+[1] Notes for OSX users
+Run the pki enabled postgis container:
+* `#> docker run -P --rm --volumes-from postgis-pgdata-container --volumes-from postgis-config-container --name "postgis" -t kartoza/postgis` 
+
+In OSX and Win, docker runs in a thiny virtualbox machine called docker-machine, The `-P` option says to docker to run the image exposing the ports to the external world.
+The default docker-machine is called `default` and it's IP address can be obtained with the following command:
+* `#> docker-machine ip default`
+
+This will be the IP address of the Postgis Db running using docker.
+The port will be not the default `5432`, but that exposed by the docker-machine with the `-P` option. To obtain the port used to connect to db, show the port exposed by the docker-machine for the postgis container. Use the following command:
+* `#> docker port postgis`
